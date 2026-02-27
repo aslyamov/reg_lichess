@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Регистрация на Lichess + Stepchess</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      min-height: 100vh;
+      padding: 24px 16px 48px;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    header h1 {
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.3;
+    }
+
+    header .chess-icon {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #f0f2f5;
+    }
+
+    .badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      color: #fff;
+    }
+
+    .badge-lichess  { background: #629924; }
+    .badge-stepchess { background: #1a6eb5; }
+
+    .card-header h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .lichess-title  { color: #629924; }
+    .stepchess-title { color: #1a6eb5; }
+
+    ol {
+      list-style: none;
+      counter-reset: steps;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    ol li {
+      counter-increment: steps;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 0.97rem;
+      line-height: 1.6;
+    }
+
+    ol li::before {
+      content: counter(steps);
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .lichess-steps li::before  { background: #eaf3dc; color: #629924; }
+    .stepchess-steps li::before { background: #ddeeff; color: #1a6eb5; }
+
+    a {
+      color: #1a6eb5;
+      font-weight: 600;
+      word-break: break-all;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .step-content { flex: 1; }
+
+    .step-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: 1px solid #e8eaf0;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <span class="chess-icon">♟</span>
+      <h1>Регистрация на Lichess&nbsp;+&nbsp;Stepchess</h1>
+    </header>
+
+    <!-- Lichess -->
+    <div class="card">
+      <div class="card-header">
+        <div class="badge badge-lichess">L</div>
+        <h2 class="lichess-title">Регистрация на Lichess</h2>
+      </div>
+      <ol class="lichess-steps">
+        <li>
+          <div class="step-content">
+            Заходим по ссылке —
+            <a href="https://lichess.org/ru/signup" target="_blank" rel="noopener">
+              lichess.org/ru/signup
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            Придумываем логин, пароль, электронную почту.
+            Подтверждаем все галочки, нажимаем <strong>«Регистрация»</strong>.
+            <img
+              class="step-img"
+              src="img/01_lichess_signup.png"
+              alt="Форма регистрации Lichess"
+              loading="lazy"
+            />
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Stepchess -->
+    <div class="card">
+      <div class="card-header">
+        <div class="badge badge-stepchess">S</div>
+        <h2 class="stepchess-title">Регистрация на Stepchess</h2>
+      </div>
+      <ol class="stepchess-steps">
+        <li>
+          <div class="step-content">
+            После регистрации на Lichess заходим по ссылке —
+            <a href="https://stepchess.ru/login" target="_blank" rel="noopener">
+              stepchess.ru/login
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            Нажимаем на значок <strong>«Lichess»</strong>.
+            <img
+              class="step-img"
+              src="img/02_stepchess_login.png"
+              alt="Кнопка входа через Lichess"
+              loading="lazy"
+            />
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            Подтверждаем регистрацию — нажимаем на синюю кнопку <strong>«AUTHORIZE»</strong>.
+            <img
+              class="step-img"
+              src="img/03_authorize.png"
+              alt="Кнопка AUTHORIZE"
+              loading="lazy"
+            />
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <footer>Готово! Теперь вы можете войти на Stepchess через Lichess.</footer>
+
+  </div>
+</body>
+</html>
